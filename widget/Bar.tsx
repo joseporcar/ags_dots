@@ -1,5 +1,5 @@
 import { App, Astal, Gtk, Gdk } from "astal/gtk4"
-import { Variable, bind } from "astal"
+import { Variable, bind, GLib } from "astal"
 import Hyprland from "gi://AstalHyprland"
 import AstalHyprland from "gi://AstalHyprland"
 
@@ -21,6 +21,14 @@ function Workspaces() {
         }
     </box>
 }
+
+function DateTime() { 
+    const datetime = Variable<string>("").poll(1000, () => GLib.DateTime.new_now_local().format("%H:%M - %m/%e.")!)
+    return <label 
+        onDestroy={() => datetime.drop()}
+        label={datetime()}
+    />
+}
 export default function Bar(gdkmonitor: Gdk.Monitor) {
     const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
 
@@ -35,11 +43,10 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
         <centerbox cssName="centerbox">
             <box>
                 <Workspaces />
-                <label label="hellowrold" /> 
             </box>
 
             <box>
-                
+                <DateTime />
             </box>
 
             <box> 
