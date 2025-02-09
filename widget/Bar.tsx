@@ -1,8 +1,9 @@
 import { App, Astal, Gtk, Gdk } from "astal/gtk4"
 import { Variable, bind } from "astal"
+import Hyprland from "gi://AstalHyprland"
 
 const time = Variable("").poll(1000, "date")
-
+const hypr = Hyprland.get_default();
 export default function Bar(gdkmonitor: Gdk.Monitor) {
     const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
 
