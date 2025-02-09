@@ -2,6 +2,7 @@ import { App, Astal, Gtk, Gdk } from "astal/gtk4"
 import { Variable, bind, GLib } from "astal"
 import Hyprland from "gi://AstalHyprland"
 import AstalHyprland from "gi://AstalHyprland"
+import Battery from "gi://AstalBattery"
 
 function Workspaces() {
     const hypr = Hyprland.get_default()
@@ -29,6 +30,12 @@ function DateTime() {
         label={datetime()}
     />
 }
+function Bat() {
+    const battery = Battery.get_default()
+    return <label
+        label={bind(battery, "percentage").as(n => (n * 100).toString())}
+    />
+}
 export default function Bar(gdkmonitor: Gdk.Monitor) {
     const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
 
@@ -50,8 +57,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
             </box>
 
             <box> 
-                <label label="arst" /> 
-                <label label="p" /> 
+                <Bat />
             </box>
         </centerbox>
     </window>
