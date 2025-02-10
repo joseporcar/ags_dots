@@ -24,7 +24,7 @@ function Workspaces() {
 }
 
 function DateTime() { 
-    const datetime = Variable<string>("").poll(1000, () => GLib.DateTime.new_now_local().format("%H:%M - %m/%e.")!)
+    const datetime = Variable<string>("").poll(5000, () => GLib.DateTime.new_now_local().format("%H:%M — %m/%d")!)
     return <label 
         onDestroy={() => datetime.drop()}
         label={datetime()}
@@ -33,7 +33,7 @@ function DateTime() {
 function Bat() {
     const battery = Battery.get_default()
     return <label
-        label={bind(battery, "percentage").as(n => (n * 100).toString())}
+        label={bind(battery, "percentage").as(n => (n * 100).toString()+"%")}
     />
 }
 export default function Bar(gdkmonitor: Gdk.Monitor) {
