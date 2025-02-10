@@ -48,15 +48,15 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
         application={App}>
         
         <centerbox cssName="centerbox">
-            <box>
+            <box cssName="lbox">
                 <Workspaces />
             </box>
 
-            <box>
+            <box cssName="cbox">
                 <DateTime />
             </box>
 
-            <box> 
+            <box cssName="rbox"> 
                 <Bat />
             </box>
         </centerbox>

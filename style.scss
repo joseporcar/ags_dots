@@ -6,13 +6,23 @@ window.Bar {
     background: transparent;
     color: $fg-color;
     font-weight: bold;
+    
 
     >centerbox {
-        background: $bg-color;
-        border-radius: 10px;
-        margin: 8px;
+        background: transparent;
+        margin: 5px 5px 4px 5px;
+        
+        >lbox {
+            background: $bg-color;
+        }
+        >cbox {
+            background: $bg-color;
+        }
+        >rbox {
+            background: $bg-color;
+        }
     }
-
+    
     button {
         border-radius: 8px;
         margin: 2px;
