@@ -5,29 +5,23 @@ $bg-color: #{"@theme_bg_color"};
 window.Bar {
     background: transparent;
     color: $fg-color;
-    font-weight: bold;
-    
+    font-weight: bold; 
+    margin: 0px;   
 
+    
     >centerbox {
         background: transparent;
-        margin: 5px 5px 4px 5px;
-        
-        >lbox {
+        margin: 5px 5px 3px 5px;
+        >box {
+            padding: 1px 5px;
             background: $bg-color;
-            border-radius: 10px;
-        }
-        >cbox {
-            background: $bg-color;
-            border-radius: 10px;
-        }
-        >rbox {
-            background: $bg-color;
-            border-radius: 10px;
+            border-radius: 7px;
         }
     }
     
     button {
         border-radius: 8px;
         margin: 2px;
+        padding: 0px 10px;
     }
 }
