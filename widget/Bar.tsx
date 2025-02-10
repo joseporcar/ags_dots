@@ -12,6 +12,7 @@ function Workspaces() {
             .filter(ws => ws.id > 0)
             .sort((a,b) => a.id - b.id)
             .map(ws => <button
+                css_classes={["workspace"]}
                 onClicked={() => ws.focus()}
                 label={bind(hypr, "focusedWorkspace").as(a => a === ws ? "|" : "–")}
             />)
@@ -24,7 +25,7 @@ function Workspaces() {
 }
 
 function DateTime() { 
-    const datetime = Variable<string>("").poll(5000, () => GLib.DateTime.new_now_local().format("%H:%M — %m/%d")!)
+    const datetime = Variable<string>("").poll(5000, () => GLib.DateTime.new_now_local().format("%Y-%m-%d %H:%M")!)
     return <label 
         onDestroy={() => datetime.drop()}
         label={datetime()}
@@ -33,7 +34,7 @@ function DateTime() {
 function Bat() {
     const battery = Battery.get_default()
     return <label
-        label={bind(battery, "percentage").as(n => (n * 100).toString()+"%")}
+        label={bind(battery, "percentage").as(n => Math.round(n * 100).toString()+"%")}
     />
 }
 export default function Bar(gdkmonitor: Gdk.Monitor) {
