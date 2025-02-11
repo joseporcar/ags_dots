@@ -22,7 +22,7 @@ function Workspaces() {
 }
 
 function DateTime() { 
-    const datetime = Variable<string>("").poll(5000, () => GLib.DateTime.new_now_local().format("%m-%d –– %H:%M")!)
+    const datetime = Variable<string>("").poll(5000, () => GLib.DateTime.new_now_local().format("%m-%d  —  %H:%M")!)
     return <label 
         onDestroy={() => datetime.drop()}
         label={datetime()}
