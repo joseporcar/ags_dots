@@ -26,15 +26,17 @@ window.Bar {
     }   
 }
 .workspaces {
+    color: yellow;
     button {
         outline: 0 none;
         padding: 0 0.3em;
     }
     label {
-        font-weight: bold;
+        font-weight: regular;
+        font-family: IBM Plex Mono;
     }
     .focused {
-        padding: 0 0em;
+        color: orange;
     }
 }
 

@@ -13,7 +13,7 @@ function Workspaces() {
             .map(ws => <button
                 css_classes={fw.as(fw => fw.id === ws ? ["focused"] : ["unfocused"])}
                 onClicked={() => hypr.get_workspace(ws).focus()}
-                label={fw.as(fw => fw.id === ws ? "|" : "—")}
+                label={fw.as(fw => fw.id === ws ? "〇" : "○")}
             />)
         }
     </box>
