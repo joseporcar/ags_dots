@@ -4,8 +4,9 @@ $bg-color: #{"@theme_bg_color"};
 
 * {
     font-weight: normal;
-    font-family: "JetbrainsMono NFM";
+    font-family: "IBM Plex Mono";
     font-size: 15px;
+    font-weight: 500;
 }
 
 window.Bar {
@@ -24,15 +25,23 @@ window.Bar {
         }
     }   
 }
-.workspace {
-    >label {
-        font-weight: 1000;
+.workspaces {
+    button {
+        outline: 0 none;
+        padding: 0 0.3em;
+    }
+    label {
+        font-weight: bold;
+    }
+    .focused {
+        padding: 0 0em;
     }
 }
+
 
 button {
     background: transparent;
     border-radius: 7px;
     margin: 0;
-    padding: 0 0.5em;
 }
+
