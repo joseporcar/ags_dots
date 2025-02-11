@@ -8,15 +8,13 @@ function Workspaces() {
     const fw = bind(hypr, "focusedWorkspace")
     return <box cssClasses={["workspaces"]}> 
         {
-        bind(hypr, "workspaces").as(workspaces => workspaces
-            .filter(ws => ws.id > 0)
-            .sort((a,b) => a.id - b.id)
+        [1, 2, 3, 4, 5]
+            .sort((a, b) =>  a - b)
             .map(ws => <button
-                css_classes={fw.as(fw => fw === ws ? ["focused"] : ["unfocused"])}
-                onClicked={() => ws.focus()}
-                label={fw.as(fw => fw === ws ? "|" : "—")}
+                css_classes={fw.as(fw => fw.id === ws ? ["focused"] : ["unfocused"])}
+                onClicked={() => hypr.get_workspace(ws).focus()}
+                label={fw.as(fw => fw.id === ws ? "|" : "—")}
             />)
-        )
         }
     </box>
 }
