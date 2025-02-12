@@ -18,6 +18,7 @@ function DateTime() {
     />
 }
 
+
 function Workspaces() {
     const hypr = Hyprland.get_default()
     const fw = bind(hypr, "focusedWorkspace")
@@ -31,6 +32,16 @@ function Workspaces() {
                 label={fw.as(fw => fw.id === ws ? "〇" : "○")}
             />)
         }
+        <button
+            css_classes={["whatsappToggle"]}
+            onClicked={() => hypr.dispatch("togglespecialworkspace", "whatsapp")}>
+            W
+        </button>
+        <button
+            css_classes={["specialToggle"]}
+            onClicked={() => hypr.dispatch("togglespecialworkspace", "")}>
+            S
+        </button>
     </box>
 }
 

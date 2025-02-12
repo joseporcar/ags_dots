@@ -13,7 +13,6 @@ window.Bar {
     background: transparent;
     color: $fg-color;
     margin: 0px;   
-
     
     >centerbox {
         background: transparent;
@@ -28,11 +27,11 @@ window.Bar {
 .workspaces {
     color: yellow;
     button {
-        outline: 0 none;
+        outline: 0;
         padding: 0 0.3em;
     }
     label {
-        font-weight: regular;
+        font-weight: normal;
         font-family: IBM Plex Mono;
     }
     .focused {
