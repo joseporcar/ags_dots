@@ -2,6 +2,7 @@ import { App, Astal, Gtk, Gdk } from "astal/gtk4"
 import { Variable, bind, GLib } from "astal"
 import Hyprland from "gi://AstalHyprland"
 import Battery from "gi://AstalBattery"
+import Notifd from "gi://AstalNotifd"
 
 function Bat() {
     const battery = Battery.get_default()
@@ -18,6 +19,16 @@ function DateTime() {
     />
 }
 
+function Notifications() {
+    const notifd = Notifd.get_default()
+
+    return <box>
+        {bind(notifd, "notifications").as(items => 
+            items.map(item => <button 
+                onClicked={() => item.dismiss()}
+                label={item.get_summary()}/>))}
+    </box> 
+}
 
 function Workspaces() {
     const hypr = Hyprland.get_default()
@@ -59,6 +70,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
         <centerbox cssName="centerbox">
             <box>
                 <Workspaces />
+                <Notifications />
             </box>
 
             <box>
