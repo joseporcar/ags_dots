@@ -3,6 +3,21 @@ import { Variable, bind, GLib } from "astal"
 import Hyprland from "gi://AstalHyprland"
 import Battery from "gi://AstalBattery"
 
+function Bat() {
+    const battery = Battery.get_default()
+    return <label
+        label={bind(battery, "percentage").as(n => Math.round(n * 100).toString()+"%")}
+    />
+}
+
+function DateTime() { 
+    const datetime = Variable<string>("").poll(5000, () => GLib.DateTime.new_now_local().format("%m-%d  —  %H:%M")!)
+    return <label 
+        onDestroy={() => datetime.drop()}
+        label={datetime()}
+    />
+}
+
 function Workspaces() {
     const hypr = Hyprland.get_default()
     const fw = bind(hypr, "focusedWorkspace")
@@ -19,19 +34,6 @@ function Workspaces() {
     </box>
 }
 
-function DateTime() { 
-    const datetime = Variable<string>("").poll(5000, () => GLib.DateTime.new_now_local().format("%m-%d  —  %H:%M")!)
-    return <label 
-        onDestroy={() => datetime.drop()}
-        label={datetime()}
-    />
-}
-function Bat() {
-    const battery = Battery.get_default()
-    return <label
-        label={bind(battery, "percentage").as(n => Math.round(n * 100).toString()+"%")}
-    />
-}
 export default function Bar(gdkmonitor: Gdk.Monitor) {
     const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
 
