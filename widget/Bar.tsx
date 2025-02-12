@@ -7,12 +7,18 @@ import Wp from "gi://AstalWp"
 
 function Audio() {
     const speaker = Wp.get_default()?.audio.defaultSpeaker!;
+    var mute = bind(speaker, "mute");
     
-    return <box>
-        <label
-            cssClasses={bind(speaker, "mute").as(m => m ? ["volume",  "muted"] : ["volume", "unmuted"])}>
-            {bind(speaker, "volume").as(n => Math.round(n * 100).toString()+"%")}
-        </label>
+    return <box cssClasses={["volume"]}>
+        <button
+            onClicked={() => speaker.mute = !speaker.mute}>
+            {mute.as(m => m ? "🤫" : "🗣️")}
+        </button>
+        <slider
+            cssClasses={mute.as(m => m ? ["muted"] : ["unmuted"])}
+            widthRequest={100}>            
+            {/*  bind(speaker, "volume").as(n => Math.round(n * 100).toString().padStart(2, '0') + '%') */}
+        </slider>
     </box>
 }
 function Bat() {
