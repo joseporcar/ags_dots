@@ -3,7 +3,18 @@ import { Variable, bind, GLib } from "astal"
 import Hyprland from "gi://AstalHyprland"
 import Battery from "gi://AstalBattery"
 import Notifd from "gi://AstalNotifd"
+import Wp from "gi://AstalWp"
 
+function Audio() {
+    const speaker = Wp.get_default()?.audio.defaultSpeaker!;
+    
+    return <box>
+        <label
+            cssClasses={bind(speaker, "mute").as(m => m ? ["volume",  "muted"] : ["volume", "unmuted"])}>
+            {bind(speaker, "volume").as(n => Math.round(n * 100).toString()+"%")}
+        </label>
+    </box>
+}
 function Bat() {
     const battery = Battery.get_default()
     return <box>
@@ -78,6 +89,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
 
             <box>
                 <DateTime />
+                <Audio /> 
             </box>
 
             <box> 
