@@ -16,8 +16,13 @@ function Audio() {
         </button>
         <slider
             cssClasses={mute.as(m => m ? ["muted"] : ["unmuted"])}
-            widthRequest={100}>            
-            {/*  bind(speaker, "volume").as(n => Math.round(n * 100).toString().padStart(2, '0') + '%') */}
+            widthRequest={200}
+            value={bind(speaker, "volume").as(v => v * 100)}   
+            //onChangeValue={()}
+            digits={0}
+            drawValue={true}
+            adjustment={Gtk.Adjustment.new(0, 0, 150, 1, 0, 0)}            
+            valuePos={Gtk.PositionType.RIGHT}>
         </slider>
     </box>
 }
