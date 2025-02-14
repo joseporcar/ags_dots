@@ -11,13 +11,12 @@ TODO:
         Make it be hidden unless acted upon, and then have it go down as an overlay vertically?? (is that possible chat)
 
 - Workspaces: 
-    Make Whatsapp icon change.. maybe in color? when there is a notification. 
     Changes to special workspace colors when active. 
     Perhaps change workspace icons.. they are not very convincing
 
 - Battery: 
     Icons? colors? some indication that battery is good or bad other than plain percentage. 
-    
+
 - Notifications: 
     Make it a button that shows the latest notification or an icon. 
     On click, have an overlay with all notifications (again idk how possible)
