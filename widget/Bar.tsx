@@ -7,27 +7,27 @@ import Wp from "gi://AstalWp"
 
 function Audio() {
     const speaker = Wp.get_default()?.audio.defaultSpeaker!;
-    var mute = bind(speaker, "mute");
+    let mute = bind(speaker, "mute");
 
     return <box cssClasses={["volume"]}>
         <button
             onClicked={() => speaker.mute = !speaker.mute}>
             {mute.as(m => m ? "🤫" : "🗣️")}
         </button>
-        {<slider
+        {/* {bind(speaker, "mute").as(m => m ? <box/> : <slider
             cssClasses={mute.as(m => m ? ["muted"] : ["unmuted"])}
             widthRequest={200}
             value={bind(speaker, "volume").as(v => v * 100)}   
-            onScroll={(v,_, y) => speaker.volume = Math.max(speaker.volume + y / 100, 0)}
+            onScroll={(__,_, y) => speaker.volume = Math.max(speaker.volume + y / 100, 0)}
             //onDragged={({value}) => speaker.volume = value / 100}
             //onChangeValue={val => speaker.volume = val.value / 100}
-            onButtonReleased={(slider, event) => speaker.volume = slider.value / 100}            
+            onButtonReleased={(slider, _) => speaker.volume = slider.value / 100}            
             //onMotion={(v,x, _) => speaker.volume = x / 100}
             digits={0}
             drawValue={true}
             adjustment={Gtk.Adjustment.new(0, 0, 150, 1, 0, 0)}            
             valuePos={Gtk.PositionType.RIGHT}
-        /> }
+        />)} */}
     </box>
 }
 function Bat() {
