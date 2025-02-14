@@ -63,6 +63,7 @@ function Notifications() {
 function Workspaces() {
     const hypr = Hyprland.get_default()
     const fw = bind(hypr, "focusedWorkspace")
+
     return <box cssClasses={["workspaces"]}> 
         {
         [1, 2, 3, 4, 5]
@@ -73,9 +74,11 @@ function Workspaces() {
             />)
         }
         <button
-            css_classes={["whatsappToggle"]}
+            css_classes={bind(hypr.get_workspace_by_name("special:whatsapp")!.lastClient, "title")
+                .as(title => title.charAt(0) == "(" ? ["whatsappNotif"] : ["whatsappNormal"])}
             onClicked={() => hypr.dispatch("togglespecialworkspace", "whatsapp")}>
             W
+            
         </button>
         <button
             css_classes={["specialToggle"]}
