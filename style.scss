@@ -13,22 +13,21 @@ window.Bar {
     background: transparent;
     color: $fg-color;
     margin: 0px;   
-    
-    >centerbox {
-        margin: 5px 5px 3px 5px;
-        >box { 
-            >box {
-                background: $bg-color;
-                padding: 1px 5px 0px 5px;
-                border-radius: 7px;  
-            } 
-            .transparent {
-                background: transparent;
-                color: transparent;
-            }
-        }
-    }   
 }
+centerbox {
+    margin: 5px 5px 3px 5px;
+}   
+box > box{ 
+    background: $bg-color;
+    padding: 1px 5px 0px 5px;
+    border-radius: 7px;  
+}
+.transparent {
+    background: transparent;
+    color: transparent;
+}
+
+
 .workspaces {
     color: yellow;
     label {
