@@ -111,10 +111,11 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
 
             <box>
                 <DateTime />
-                <Audio /> 
             </box>
 
             <box> 
+                <Audio /> 
+                <box cssClasses={["transparent"]} hexpand={true} />
                 <Bat />
             </box>
         </centerbox>
