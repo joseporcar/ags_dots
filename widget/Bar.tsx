@@ -39,6 +39,10 @@ function Bat() {
     </box>
 }
 
+function Brightness() {
+    
+}
+
 function DateTime() { 
     const datetime = Variable<string>("").poll(5000, () => GLib.DateTime.new_now_local().format("%m-%d  —  %H:%M")!)
     return <box>
@@ -63,6 +67,7 @@ function Notifications() {
 function Workspaces() {
     const hypr = Hyprland.get_default()
     const fw = bind(hypr, "focusedWorkspace")
+    let wsnotif = bind(hypr.get_workspace_by_name("special:whatsapp")!.lastClient, "title")
 
     return <box cssClasses={["workspaces"]}> 
         {
@@ -74,10 +79,9 @@ function Workspaces() {
             />)
         }
         <button
-            css_classes={bind(hypr.get_workspace_by_name("special:whatsapp")!.lastClient, "title")
-                .as(title => title.charAt(0) == "(" ? ["whatsappNotif"] : ["whatsappNormal"])}
+            css_classes={wsnotif.as(title => title.charAt(0) == "(" ? ["whatsappNotif"] : ["whatsappNormal"])}
             onClicked={() => hypr.dispatch("togglespecialworkspace", "whatsapp")}>
-            W
+            {wsnotif.as(title => title.charAt(0) != "(" ? "W" : title.charAt(1))}
             
         </button>
         <button
