@@ -67,7 +67,7 @@ function Notifications() {
 function Workspaces() {
     const hypr = Hyprland.get_default()
     const fw = bind(hypr, "focusedWorkspace")
-    let wsnotif = bind(hypr.get_workspace_by_name("special:whatsapp")!.lastClient, "title")
+    let wsnotif = bind(hypr.get_workspace_by_name("special:whatsapp")!.clients[0], "title")
 
     return <box cssClasses={["workspaces"]}> 
         {
