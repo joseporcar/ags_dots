@@ -66,18 +66,18 @@ function Notifications() {
 
 function Workspaces() {
     const hypr = Hyprland.get_default()
-    const fw = bind(hypr, "focusedWorkspace")
+    //const fw = bind(hypr, "focusedWorkspace")
     let wsnotif = bind(hypr.get_workspace_by_name("special:whatsapp")!.clients[0], "title")
 
     return <box cssClasses={["workspaces"]}> 
-        {
+        {/* {
         [1, 2, 3, 4, 5]
             .map(ws => <button
                 css_classes={fw.as(fw => fw.id === ws ? ["focused"] : ["unfocused"])}
                 onClicked={() => hypr.dispatch("focusworkspaceoncurrentmonitor", ws.toString())}
                 label={fw.as(fw => fw.id === ws ? "〇" : "○")}
             />)
-        }
+        } */}
         <button
             css_classes={wsnotif.as(title => title.charAt(0) == "(" ? ["whatsappNotif"] : ["whatsappNormal"])}
             onClicked={() => hypr.dispatch("togglespecialworkspace", "whatsapp")}>
