@@ -12,14 +12,14 @@ $bg-color: #{"@theme_bg_color"};
 window.Bar {
     background: transparent;
     color: $fg-color;
-    margin: 0px;   
+    margin: 0;   
 }
 centerbox {
     margin: 5px 5px 3px 5px;
 }   
 box > box{ 
     background: $bg-color;
-    padding: 1px 5px 0px 5px;
+    padding: 0px 5px 0px 5px;
     border-radius: 7px;  
 }
 .transparent {
@@ -33,6 +33,12 @@ box > box{
     label {
         font-weight: normal;
         font-family: IBM Plex Mono;
+    }
+    .nonspecial * {
+        padding: 0;
+        border-width: 0;
+        // margin: -0.134em;
+        // letter-spacing: -1em;
     }
     .focused {
         color: orange;
@@ -58,6 +64,7 @@ button {
     margin: 0;
     outline: 0;
     padding: 0 0.3em;
+    
 }
 // slider {
 //     background: white;
