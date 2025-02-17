@@ -32,7 +32,7 @@ function Audio() {
 }
 function Bat() {
     const battery = Battery.get_default()
-    return <box>
+    return <box cssClasses={["battery"]}>
         <label
         cssClasses={bind(battery, "charging").as(charging => charging ? ["charging"] : ["normal"])}
         label={bind(battery, "percentage").as(n => Math.round(n * 100).toString()+"%")}

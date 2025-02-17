@@ -27,7 +27,11 @@ box > box{
     color: transparent;
 }
 
-
+.battery {
+    .charging {
+        color: lightgreen;
+    }
+}
 .workspaces {
     color: yellow;
     label {
