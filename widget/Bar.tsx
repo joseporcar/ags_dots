@@ -61,7 +61,7 @@ function Notifications() {
         {bind(notifd, "notifications").as(items => 
             items.map(item => <button 
                 onClicked={() => item.dismiss()}
-                label={item.get_app_name() + " | " + item.get_summary() }/>))}
+                label={item.get_app_name() + " | " + item.get_summary() + " | " + item.get_body()}/>))}
     </box> 
 }
 
