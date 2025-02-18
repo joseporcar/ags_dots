@@ -77,7 +77,6 @@ function Workspaces() {
                 .map(ws => <button
                     css_classes={fw.as(fw => fw.id === ws ? ["focused"] : ["unfocused"])}
                     onClicked={() => hypr.dispatch("focusworkspaceoncurrentmonitor", ws.toString())}>
-                    {/* label={fw.as(fw => fw.id === ws ? "⩯" : "≈")} */}
                     <image file={fw.as(fw => fw.id === ws ? "assets/accent_sine.png" : "assets/lavender_sine_wave.png")}/>
                     
                 </button>)
