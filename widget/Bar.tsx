@@ -65,15 +65,16 @@ function Notifications() {
     </box> 
 }
 
-function Workspaces() {
+function Workspaces(monitor: Gdk.Monitor) {
     const hypr = Hyprland.get_default()
-    const fw = bind(hypr, "focusedWorkspace")
+    const hypr_monitor = hypr.monitors.filter(mon => mon.name == monitor.connector)[0]
+    const fw = bind(hypr_monitor, "activeWorkspace")
     let wsnotif = bind(hypr.get_workspace_by_name("special:whatsapp")!.clients[0], "title")
 
     return <box cssClasses={["workspaces"]}> 
         <box cssClasses={["nonspecial"]}>
             {
-            [1, 2, 3, 4, 5]
+            (monitor.connector == "eDP-1" ? [1, 2, 3, 4, 5] : [11, 12, 13, 14, 15])
                 .map(ws => <button
                     css_classes={fw.as(fw => fw.id === ws ? ["focused"] : ["unfocused"])}
                     onClicked={() => hypr.dispatch("focusworkspaceoncurrentmonitor", ws.toString())}>
@@ -109,7 +110,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
         
         <centerbox cssName="centerbox">
             <box>
-                <Workspaces />
+                {Workspaces(gdkmonitor)}
                 <Notifications />
             </box>
 
