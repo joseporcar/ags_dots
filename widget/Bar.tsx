@@ -74,7 +74,7 @@ function Workspaces(monitor: Gdk.Monitor) {
     return <box cssClasses={["workspaces"]}> 
         <box cssClasses={["nonspecial"]}>
             {
-            (monitor.connector == "eDP-1" ? [1, 2, 3, 4, 5] : [11, 12, 13, 14, 15])
+            (monitor.connector == "eDP-1" ? [1, 2, 3, 4, 5] : [6, 7, 8, 9, 10])
                 .map(ws => <button
                     css_classes={fw.as(fw => fw.id === ws ? ["focused"] : ["unfocused"])}
                     onClicked={() => hypr.dispatch("focusworkspaceoncurrentmonitor", ws.toString())}>
