@@ -73,7 +73,7 @@ function Workspaces(monitor: Gdk.Monitor) {
 
     return <box cssClasses={["workspaces"]}> 
         <box cssClasses={["nonspecial"]}>
-            <image file={"assets/vertical_bar.png"}/>
+            <image file={"assets/vertical_bar.png"} cssClasses={["vertBar"]}/>
             {
             (monitor.connector == "eDP-1" ? [1, 2, 3, 4, 5] : [6, 7, 8, 9, 10])
                 .map(ws => <button
@@ -83,7 +83,7 @@ function Workspaces(monitor: Gdk.Monitor) {
                     
                 </button>)
             }
-            <image file={"assets/vertical_bar.png"}/>
+            <image file={"assets/vertical_bar.png"} cssClasses={["vertBar"]}/>
 
         </box>
         <button
