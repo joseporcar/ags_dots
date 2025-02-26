@@ -53,16 +53,16 @@ box > box{
     .specialToggle {
         color: #c6a0f6;
     }
+    .vertBar {
+        padding: 0px;
+        margin: 0 -8px 0 -7px;
+    }
 }
 
 .muted {
     color: red;
 }
 
-.vertBar {
-    padding: 0px;
-    margin: 0 -8px 0 -7px;
-}
 button {
     background: transparent;
     border-radius: 7px;
