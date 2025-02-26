@@ -73,6 +73,7 @@ function Workspaces(monitor: Gdk.Monitor) {
 
     return <box cssClasses={["workspaces"]}> 
         <box cssClasses={["nonspecial"]}>
+            <image file={"assets/vertical_bar.png"}/>
             {
             (monitor.connector == "eDP-1" ? [1, 2, 3, 4, 5] : [6, 7, 8, 9, 10])
                 .map(ws => <button
@@ -82,6 +83,8 @@ function Workspaces(monitor: Gdk.Monitor) {
                     
                 </button>)
             }
+            <image file={"assets/vertical_bar.png"}/>
+
         </box>
         <button
             css_classes={wsnotif.as(title => title.charAt(0) == "(" ? ["whatsappNotif"] : ["whatsappNormal"])}
