@@ -36,11 +36,8 @@ function Bat() {
     let label = <label
     cssClasses={bind(battery, "charging").as(charging => charging ? ["charging"] : ["normal"])}
     label={percentage.as(n => Math.floor(n * 100).toString()+"%")}/>
-    if (percentage.as(n => n < 0.70)) {
-        label.cssClasses.push("lowbat")
-    }
+    percentage.subscribe(n =>  label.cssClasses.push("lowbat"))
     return <box cssClasses={["battery"]}>
-        <button onClicked={"echo " + label.cssClasses}> aar</button>
         {label}
     </box>
 }
