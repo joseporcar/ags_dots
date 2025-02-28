@@ -5,7 +5,7 @@ $bg-color: #{"@theme_bg_color"};
 * {
     font-weight: normal;
     font-family: "IBM Plex Sans";
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
 }
 
@@ -15,7 +15,7 @@ window.Bar {
     margin: 0;   
 }
 centerbox {
-    margin: 5px 5px 3px 5px;
+    margin: 3px 3px 2px 3px;
 }   
 box > box{ 
     background: $bg-color;
