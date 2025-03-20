@@ -51,8 +51,7 @@ function DateTime() {
     return <box>
         <label 
         onDestroy={() => datetime.drop()}
-        label={datetime()}
-    />
+        label={datetime()}/>
     </box>
 }
 
@@ -71,7 +70,7 @@ function Workspaces(monitor: Gdk.Monitor) {
     const hypr = Hyprland.get_default()
     const hypr_monitor = hypr.monitors.filter(mon => mon.name == monitor.connector)[0]
     const fw = bind(hypr_monitor, "activeWorkspace")
-    let wsnotif = bind(hypr.get_workspace_by_name("special:whatsapp")!.clients[0], "title")
+    //let wsnotif = bind(hypr.get_workspace_by_name("special:whatsapp")!.clients[0], "title")
 
     return <box cssClasses={["workspaces"]}> 
         <box cssClasses={["nonspecial"]}>
@@ -89,9 +88,11 @@ function Workspaces(monitor: Gdk.Monitor) {
 
         </box>
         <button
-            css_classes={wsnotif.as(title => title.charAt(0) == "(" ? ["whatsappNotif"] : ["whatsappNormal"])}
+            css_classes={["whatsappNotif"]//{wsnotif.as(title => title.charAt(0) == "(" ? ["whatsappNotif"] : ["whatsappNormal"])
+                }
             onClicked={() => hypr.dispatch("togglespecialworkspace", "whatsapp")}>
-            {wsnotif.as(title => title.charAt(0) != "(" ? "W" : title.charAt(1))}
+            {//wsnotif.as(title => title.charAt(0) != "(" ? "W" : title.charAt(1))}
+            "W"}
             
         </button>
         <button
