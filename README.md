@@ -1,3 +1,6 @@
+# DEPRECATED
+doesn't work anymore so yeah womp womp 
+
 Requirements: 
 - ibm plex mono font
 
